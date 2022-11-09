@@ -3,14 +3,16 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Sports_Ground_Management_System.Migrations.MyAppDb
 {
     [DbContext(typeof(MyAppDbContext))]
-    partial class MyAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221109151357_slots1")]
+    partial class slots1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,8 +93,6 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GroundId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("BookedSlot");
@@ -104,6 +104,9 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("BookedSlotId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -122,20 +125,23 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BookedSlotId");
+
                     b.ToTable("Ground");
                 });
 
             modelBuilder.Entity("Sports_Ground_Management_System.Models.BookedSlot", b =>
                 {
-                    b.HasOne("Sports_Ground_Management_System.Models.Ground", "Ground")
-                        .WithMany("BookedSlots")
-                        .HasForeignKey("GroundId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Sports_Ground_Management_System.Areas.Identity.Data.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Sports_Ground_Management_System.Models.Ground", b =>
+                {
+                    b.HasOne("Sports_Ground_Management_System.Models.BookedSlot", null)
+                        .WithMany("Grounds")
+                        .HasForeignKey("BookedSlotId");
                 });
 #pragma warning restore 612, 618
         }

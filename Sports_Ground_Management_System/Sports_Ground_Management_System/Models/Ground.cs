@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sports_Ground_Management_System.Models
 {
@@ -18,5 +19,6 @@ namespace Sports_Ground_Management_System.Models
         [Required]
         public long capacity { get; set; }
 
+        public ICollection<BookedSlot> BookedSlots { get; set; }
     }
 }

@@ -13,4 +13,6 @@ using Sports_Ground_Management_System.Models;
         }
 
         public DbSet<Sports_Ground_Management_System.Models.Ground> Ground { get; set; }
+
+        public DbSet<Sports_Ground_Management_System.Models.BookedSlot> BookedSlot { get; set; }
     }
