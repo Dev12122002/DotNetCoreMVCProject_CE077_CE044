@@ -95,5 +95,12 @@ namespace Sports_Ground_Management_System.Controllers
                 }
             }
         }
+
+        //public Task GetUser()
+        //{
+        //    var user = _userManager.FindById(User.Identity.GetUserId());
+        //    return user;
+        //}
+
     }
 }

@@ -19,6 +19,7 @@ namespace Sports_Ground_Management_System.Models
         [Required]
         public long capacity { get; set; }
 
-        public ICollection<BookedSlot> BookedSlots { get; set; }
+        public ICollection<Slot> BookedSlots { get; set; }
+
     }
 }

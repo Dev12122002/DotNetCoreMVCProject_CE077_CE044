@@ -1,4 +1,4 @@
-﻿@model Sports_Ground_Management_System.Models.BookedSlot
+﻿@model Sports_Ground_Management_System.Models.Slot
 
 @{
     ViewData["Title"] = "Details";
@@ -7,7 +7,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>BookedSlot</h4>
+    <h4>Slot</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,10 +23,22 @@
             @Html.DisplayFor(model => model.To)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Attendees)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Attendees)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Ground)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Ground.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.User.Id)
         </dd>
     </dl>
 </div>

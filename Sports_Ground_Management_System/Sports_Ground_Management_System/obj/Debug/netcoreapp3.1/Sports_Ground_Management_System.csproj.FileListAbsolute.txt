@@ -478,8 +478,8 @@ D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground
 D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Grounds\Details.cshtml.g.cs
 D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Grounds\Edit.cshtml.g.cs
 D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Grounds\Index.cshtml.g.cs
-D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\BookedSlots\Create.cshtml.g.cs
-D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\BookedSlots\Delete.cshtml.g.cs
-D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\BookedSlots\Details.cshtml.g.cs
-D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\BookedSlots\Edit.cshtml.g.cs
-D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\BookedSlots\Index.cshtml.g.cs
+D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Slots\Create.cshtml.g.cs
+D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Slots\Delete.cshtml.g.cs
+D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Slots\Details.cshtml.g.cs
+D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Slots\Edit.cshtml.g.cs
+D:\Sports_Ground_Management_System\Sports_Ground_Management_System\Sports_Ground_Management_System\obj\Debug\netcoreapp3.1\Razor\Views\Slots\Index.cshtml.g.cs

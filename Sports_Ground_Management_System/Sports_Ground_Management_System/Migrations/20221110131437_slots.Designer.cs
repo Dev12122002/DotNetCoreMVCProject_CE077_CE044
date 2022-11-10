@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Sports_Ground_Management_System.Migrations.MyAppDb
+namespace Sports_Ground_Management_System.Migrations
 {
     [DbContext(typeof(MyAppDbContext))]
-    [Migration("20221109153932_slots2")]
-    partial class slots2
+    [Migration("20221110131437_slots")]
+    partial class slots
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Sports_Ground_Management_System.Areas.Identity.Data.ApplicationUser", b =>
+            modelBuilder.Entity("Sports_Ground_Management_System.Areas.Identity.Data.AspNetUsers", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -69,35 +69,7 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("ApplicationUser");
-                });
-
-            modelBuilder.Entity("Sports_Ground_Management_System.Models.BookedSlot", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("From")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("GroundId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("To")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GroundId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("BookedSlot");
+                    b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("Sports_Ground_Management_System.Models.Ground", b =>
@@ -127,7 +99,38 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                     b.ToTable("Ground");
                 });
 
-            modelBuilder.Entity("Sports_Ground_Management_System.Models.BookedSlot", b =>
+            modelBuilder.Entity("Sports_Ground_Management_System.Models.Slot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("Attendees")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("From")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("GroundId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("To")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroundId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BookedSlot");
+                });
+
+            modelBuilder.Entity("Sports_Ground_Management_System.Models.Slot", b =>
                 {
                     b.HasOne("Sports_Ground_Management_System.Models.Ground", "Ground")
                         .WithMany("BookedSlots")
@@ -135,8 +138,8 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sports_Ground_Management_System.Areas.Identity.Data.ApplicationUser", "User")
-                        .WithMany()
+                    b.HasOne("Sports_Ground_Management_System.Areas.Identity.Data.AspNetUsers", "User")
+                        .WithMany("BookedSlots")
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Sports_Ground_Management_System.Areas.Identity.Data;
+using Microsoft.AspNetCore.Http;
+using Sports_Ground_Management_System.Controllers;
 
 namespace Sports_Ground_Management_System.Areas.Identity.Pages.Account
 {
@@ -93,6 +95,7 @@ namespace Sports_Ground_Management_System.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
                     var user = await _userManager.FindByEmailAsync(Input.Email);
                     // Get the roles for the user
+
                     var roles = await _userManager.GetRolesAsync(user);
                     if (string.Compare(roles[0],"Admin") == 0)
                     {

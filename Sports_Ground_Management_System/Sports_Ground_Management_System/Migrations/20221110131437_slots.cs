@@ -1,14 +1,14 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Sports_Ground_Management_System.Migrations.MyAppDb
+namespace Sports_Ground_Management_System.Migrations
 {
     public partial class slots : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ApplicationUser",
+                name: "AspNetUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -29,7 +29,23 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ApplicationUser", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ground",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false),
+                    img = table.Column<string>(nullable: false),
+                    address = table.Column<string>(nullable: false),
+                    capacity = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ground", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,6 +56,7 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                         .Annotation("SqlServer:Identity", "1, 1"),
                     From = table.Column<DateTime>(nullable: false),
                     To = table.Column<DateTime>(nullable: false),
+                    Attendees = table.Column<long>(nullable: false),
                     GroundId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true)
                 },
@@ -53,9 +70,9 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookedSlot_ApplicationUser_UserId",
+                        name: "FK_BookedSlot_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "ApplicationUser",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -77,7 +94,10 @@ namespace Sports_Ground_Management_System.Migrations.MyAppDb
                 name: "BookedSlot");
 
             migrationBuilder.DropTable(
-                name: "ApplicationUser");
+                name: "Ground");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

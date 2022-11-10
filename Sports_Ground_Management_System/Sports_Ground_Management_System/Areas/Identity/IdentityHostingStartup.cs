@@ -23,6 +23,7 @@ namespace Sports_Ground_Management_System.Areas.Identity
                 services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
+                
                 //services.AddDbContext<ApplicationDbContext>(options =>
                 //options.UseSqlServer(
                 //        context.Configuration.GetConnectionString("ApplicationDbContextConnection")));
