@@ -19,13 +19,6 @@ namespace Sports_Ground_Management_System.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<HomeController> _logger;
@@ -52,8 +45,7 @@ namespace Sports_Ground_Management_System.Controllers
             ServiceCollection sc = new ServiceCollection();
             ServiceProvider serviceProvider = sc.BuildServiceProvider();
             await Initialize(serviceProvider);
-
-            return View();
+            return LocalRedirect("~/Grounds");
         }
 
         public IActionResult Privacy()

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Sports_Ground_Management_System.Migrations
 {
     [DbContext(typeof(MyAppDbContext))]
-    [Migration("20221110131437_slots")]
+    [Migration("20221110134348_slots")]
     partial class slots
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -139,7 +139,7 @@ namespace Sports_Ground_Management_System.Migrations
                         .IsRequired();
 
                     b.HasOne("Sports_Ground_Management_System.Areas.Identity.Data.AspNetUsers", "User")
-                        .WithMany("BookedSlots")
+                        .WithMany()
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

@@ -10,7 +10,7 @@ using Sports_Ground_Management_System.Models;
 
 namespace Sports_Ground_Management_System.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class GroundsController : Controller
     {
         private readonly MyAppDbContext _context;
@@ -45,6 +45,7 @@ namespace Sports_Ground_Management_System.Controllers
         }
 
         // GET: Grounds/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -55,6 +56,7 @@ namespace Sports_Ground_Management_System.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name,img,address,capacity")] Ground ground)
         {
             if (ModelState.IsValid)
@@ -67,6 +69,7 @@ namespace Sports_Ground_Management_System.Controllers
         }
 
         // GET: Grounds/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,6 +90,7 @@ namespace Sports_Ground_Management_System.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,img,address,capacity")] Ground ground)
         {
             if (id != ground.Id)
@@ -118,6 +122,7 @@ namespace Sports_Ground_Management_System.Controllers
         }
 
         // GET: Grounds/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,6 +141,7 @@ namespace Sports_Ground_Management_System.Controllers
         }
 
         // POST: Grounds/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -62,9 +62,13 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  font-family: "Roboto", sans-serif;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: "Roboto", sans-serif;
+    /*background-image: url('https: //www.selectyouruniversity.com/images/slider-1.jpg') !important;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    /*background-color: red!important;*/
 }
 .footer {
   position: absolute;

@@ -8,7 +8,11 @@ using Sports_Ground_Management_System.Models;
 
     public class MyAppDbContext : DbContext
     {
-        public MyAppDbContext (DbContextOptions<MyAppDbContext> options)
+    public MyAppDbContext()
+    {
+    }
+
+    public MyAppDbContext (DbContextOptions<MyAppDbContext> options)
             : base(options)
         {
         }

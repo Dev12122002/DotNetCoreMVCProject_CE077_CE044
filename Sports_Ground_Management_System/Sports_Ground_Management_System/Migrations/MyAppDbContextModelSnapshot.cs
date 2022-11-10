@@ -137,7 +137,7 @@ namespace Sports_Ground_Management_System.Migrations
                         .IsRequired();
 
                     b.HasOne("Sports_Ground_Management_System.Areas.Identity.Data.AspNetUsers", "User")
-                        .WithMany("BookedSlots")
+                        .WithMany()
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

@@ -26,6 +26,9 @@
                 @if (SignInManager.IsSignedIn(User)){
                     <a class="nav-link link text-white-50" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 }
+                <a class="nav-link link text-white-50" asp-area="" asp-controller="Grounds" asp-action="Index">Grounds</a>
+                <a class="nav-link link text-white-50" asp-area="" asp-controller="Slots" asp-action="Index">Slots</a>
+                <a class="nav-link link text-white-50" asp-area="" asp-controller="Slots" asp-action="BookedSlots">My Slots</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

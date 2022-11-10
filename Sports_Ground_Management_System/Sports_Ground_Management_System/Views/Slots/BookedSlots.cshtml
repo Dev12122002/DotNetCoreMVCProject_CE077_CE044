@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Sports_Ground_Management_System.Models.Slot>
+@using Microsoft.AspNet.Identity;
+@{
+    ViewData["Title"] = "Booked Slots";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ground)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if(item.User.Id == User.Identity.GetUserId()){
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.From)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.To)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Attendees)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ground.Name)
+                    </td>
+                   @* <td>
+                        @Html.DisplayFor(modelItem => item.User.Id)
+                    </td>*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
